@@ -18,7 +18,7 @@ async def on_message(message):
         return
 
     # ユーザーのチャット内容が語録に入っているものだったらBOTが復唱する
-    if message.content in config['analects']
+    if message.content in config['analects']:
         await message.channel.send(message.content)
     
 
