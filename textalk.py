@@ -6,7 +6,7 @@ TOKEN = 'NjcwNTI4MTAwOTMyNjQ4OTgw.Xivspg.XIL9FCW30sc9KgSbPi7TUe3Jy90'
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
-
+#!/usrbin/env python3
 @client.event
 async def on_ready():
     print('起動完了')
