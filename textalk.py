@@ -2,7 +2,7 @@
 # インストールした discord.py を読み込む
 import discord
 
-TOKEN = 'NjcwNTI4MTAwOTMyNjQ4OTgw.XiwKKw._9HV8DnZUIOrqjiLDjMtoPciYnY'
+TOKEN = 'NjcwNTI4MTAwOTMyNjQ4OTgw.XiwO5w.PRoVQfbqsa6tbSi7hucDtpxaRp8'
 
 client = discord.Client()
 @client.event
