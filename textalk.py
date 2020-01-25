@@ -1,4 +1,3 @@
-#!/usrbin/env python3
 # インストールした discord.py を読み込む
 import discord
 
@@ -29,5 +28,5 @@ async def on_voice_state_update(member, before, after):
     else:
         await member.remove_roles(role)
         print('ロール削除')
-
+print(TOKEN)
 client.run(TOKEN)
