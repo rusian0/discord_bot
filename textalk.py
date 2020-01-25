@@ -1,3 +1,4 @@
+#!/usrbin/env python3
 # インストールした discord.py を読み込む
 import discord
 
