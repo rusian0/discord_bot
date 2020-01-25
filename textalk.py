@@ -27,5 +27,5 @@ async def on_voice_state_update(member, before, after):
     else:
         await member.remove_roles(role)
         print('ロール削除')
-print(TOKEN)
+# print(TOKEN)
 client.run('NjcwNTI4MTAwOTMyNjQ4OTgw.XiwUig.kvUUKRFQtQ_uSo8Z1JVPN5-tHaA')
