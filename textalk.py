@@ -1,12 +1,9 @@
 # インストールした discord.py を読み込む
 import discord
 
-# 自分のBotのアクセストークンに置き換えてください
-TOKEN = 'NjcwNTI4MTAwOTMyNjQ4OTgw.Xivspg.XIL9FCW30sc9KgSbPi7TUe3Jy90'
+TOKEN = 'NjcwNTI4MTAwOTMyNjQ4OTgw.XiwJFA.ybRFDJvAD_uDwoL5RS3Mtyox8k0'
 
-# 接続に必要なオブジェクトを生成
 client = discord.Client()
-#!/usrbin/env python3
 @client.event
 async def on_ready():
     print('起動完了')
