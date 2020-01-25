@@ -1,6 +1,5 @@
 import discord
-
-# TOKEN = 'NjcwNTI4MTAwOTMyNjQ4OTgw.XiwRGg.2yrGp4klU-1oDBpuHjl6foG4j2Q'
+import json
 
 client = discord.Client()
 @client.event
@@ -27,5 +26,8 @@ async def on_voice_state_update(member, before, after):
     else:
         await member.remove_roles(role)
         print('ロール削除')
-# print(TOKEN)
-client.run('NjcwNTI4MTAwOTMyNjQ4OTgw.XiwUig.kvUUKRFQtQ_uSo8Z1JVPN5-tHaA')
+
+json_file = open('config.json', 'r')
+config = json.load(json_file)
+
+client.run(config['bot_token'])
