@@ -1,29 +1,45 @@
+#!/usr/bin/python3
 import discord
 import json
+from discord.ext import commands
 
+bot = commands.Bot(command_prefix='!')
 
 # 設定ファイル用のconfig.jsonを読み込み辞書型にする
 json_file = open('config.json', 'r')
 config = json.load(json_file)
 
-client = discord.Client()
-@client.event
+# client = discord.Client()
+@bot.event
 async def on_ready():
     print('起動完了')
 
+@bot.command()
+async def test(ctx, arg = ""):
+    if arg == "":
+        print('パラメータなし')
+        return
+
+    await ctx.send(arg)
+
 # ユーザーがテキストチャンネルでチャットを送信したときのイベント
-@client.event
+@bot.event
 async def on_message(message):
     if message.author.bot:
         return
+    # print(message.content)
+    await bot.process_commands(message)
 
     # ユーザーのチャット内容が語録に入っているものだったらBOTが復唱する
     if message.content in config['analects']:
         await message.channel.send(message.content)
     
+    # ユーザーのチャット内容が禁止語録に入っているものだったら注意する
+    if message.content in config['ban_analects']:
+        await message.channel.send('卑猥な事を言うのはやめましょう！')
 
 # ユーザーがボイスチャンネルに入った or 出たときのイベント
-@client.event
+@bot.event
 async def on_voice_state_update(member, before, after):
     # 特定のロールの取得
     role = discord.utils.get(member.guild.roles, name='Talker')
@@ -40,4 +56,5 @@ async def on_voice_state_update(member, before, after):
 
 
 # トークンを使用したBOTの起動
-client.run(config['bot_token'])
+# client.run(config['bot_token'])
+bot.run(config['bot_token'])
