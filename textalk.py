@@ -30,13 +30,19 @@ async def on_message(message):
     # print(message.content)
     await bot.process_commands(message)
 
+    if (message.content == 'ジーザス'):
+        await message.channel.send('sup')
+        return
+
     # ユーザーのチャット内容が語録に入っているものだったらBOTが復唱する
     if message.content in config['analects']:
         await message.channel.send(message.content)
+        return
     
     # ユーザーのチャット内容が禁止語録に入っているものだったら注意する
     if message.content in config['ban_analects']:
-        await message.channel.send('卑猥な事を言うのはやめましょう！')
+        await message.channel.send('暴言や下品なチャットは控えましょう')
+        return
 
 # ユーザーがボイスチャンネルに入った or 出たときのイベント
 @bot.event
