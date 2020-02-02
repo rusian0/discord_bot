@@ -38,11 +38,17 @@ async def on_message(message):
     if message.content in config['analects']:
         await message.channel.send(message.content)
         return
-    
+
+    # 発言者がジーザスだったら注意する
+    if (message.author.discriminator == '1727'):
+        await message.channel.send('暴言や下品なチャットは控えましょう')
+        return
+
     # ユーザーのチャット内容が禁止語録に入っているものだったら注意する
     if message.content in config['ban_analects']:
         await message.channel.send('暴言や下品なチャットは控えましょう')
         return
+        
 
 # ユーザーがボイスチャンネルに入った or 出たときのイベント
 @bot.event
