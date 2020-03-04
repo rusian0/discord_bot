@@ -57,7 +57,8 @@ async def on_voice_state_update(member, before, after):
     role = discord.utils.get(member.guild.roles, name='Talker')
 
     # ユーザーが入ったボイスチャンネルの名前がパコるフィールドだった場合
-    if str(after.channel) == 'パコるフィールド☆':
+    channel_name = str(after.channel)
+    if channel_name == 'パコるフィールド☆' or channel_name == 'おしゃべり':
         # 特定のロールをユーザーに付与する
         await member.add_roles(role)
         

@@ -11,7 +11,7 @@ from firebase_admin import firestore
 cred = credentials.Certificate("../dev-pulscreen-firebase-key.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
-docRef = db.collection(u'room').document(u'rtdoeyqTA8Ze1GSbBhdP')
+docRef = db.collection(u'room').document(u'testroompinosaba')
 
 bot = commands.Bot(command_prefix='!')
 
@@ -83,7 +83,7 @@ async def on_message(message):
     # 追加完了した旨をテキストチャンネルへ送信
     try:
         await message.channel.send('*上記の動画をリアルタイム共有に追加しました*')
-        await message.channel.send('__**共有URL：https://dev.pulscreen.com/screen?id=rtdoeyqTA8Ze1GSbBhdP**__')
+        await message.channel.send('__**共有URL：https://dev.pulscreen.com/screen?id=testroompinosaba**__')
     except:
         print('送信失敗')
 
